@@ -129,11 +129,11 @@ function DashboardPage() {
 
 function Sidebar({ onSignOut }: { onSignOut: () => void }) {
   const items = [
-    { icon: LayoutDashboard, label: "Dashboard", active: true },
-    { icon: LineIcon, label: "Trade" },
-    { icon: Bot, label: "AI Insights" },
-    { icon: Wallet, label: "Portfolio" },
-    { icon: SettingsIcon, label: "Settings" },
+    { icon: LayoutDashboard, label: "Dashboard", to: "/dashboard" as const, active: true },
+    { icon: LineIcon, label: "Trade", to: "/trade" as const },
+    { icon: Bot, label: "AI Insights", to: "/ai-insights" as const },
+    { icon: Wallet, label: "Portfolio", to: "/portfolio" as const },
+    { icon: SettingsIcon, label: "Settings", to: "/settings" as const },
   ];
   return (
     <aside className="fixed inset-y-0 left-0 z-20 hidden w-60 flex-col border-r border-border/40 glass-strong px-4 py-6 md:flex">
@@ -143,8 +143,9 @@ function Sidebar({ onSignOut }: { onSignOut: () => void }) {
       </Link>
       <nav className="flex-1 space-y-1">
         {items.map((it) => (
-          <button
+          <Link
             key={it.label}
+            to={it.to}
             className={`flex w-full items-center gap-3 rounded-lg px-3 py-2.5 text-sm font-medium transition ${
               it.active
                 ? "bg-primary/15 text-primary ring-1 ring-primary/30"
@@ -153,7 +154,7 @@ function Sidebar({ onSignOut }: { onSignOut: () => void }) {
           >
             <it.icon className="h-4 w-4" />
             {it.label}
-          </button>
+          </Link>
         ))}
       </nav>
       <button
