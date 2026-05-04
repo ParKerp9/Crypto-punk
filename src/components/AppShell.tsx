@@ -4,6 +4,7 @@ import { useAuth } from "@/lib/auth";
 import { toast } from "sonner";
 import {
   Bot,
+  MessageSquare,
   LayoutDashboard,
   LineChart as LineIcon,
   LogOut,
@@ -15,6 +16,7 @@ const NAV = [
   { to: "/dashboard", icon: LayoutDashboard, label: "Dashboard" },
   { to: "/trade", icon: LineIcon, label: "Trade" },
   { to: "/ai-insights", icon: Bot, label: "AI Insights" },
+  { to: "/chatbot", icon: MessageSquare, label: "Chatbot" },
   { to: "/portfolio", icon: Wallet, label: "Portfolio" },
   { to: "/settings", icon: SettingsIcon, label: "Settings" },
 ] as const;
